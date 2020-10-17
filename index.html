@@ -21,20 +21,131 @@
     <button class="btn" id="savebtn">Save</button>
   </header>
 
-  <div class="container" id="scroll-container">
+  <main class="container" id="scroll-container">
 
-    <!--Row 00:00-->
-    <div class="row">
-      <div class="col-4">
-        <label id="label0000">00:00</label>
+    <div class="row border">
+      <div class="col-sm-1">
+        <h4>00:00</h4>
       </div>
+      <section class="col-sm-11 input-1" id="zero">
 
-      <div class="col-8">
-        <input class="form-control" type="text" id="input0000" placeholder="..." value="" name="input0000"
-          autocomplete="off" />
-      </div>
+      </section>
     </div>
-  </div>
+
+    <div class="row border">
+      <div class="col-sm-1">
+        <h4>01:00</h4>
+      </div>
+      <section class="col-sm-11 input-1" id="one">
+
+      </section>
+    </div>
+
+    <div class="row border">
+      <div class="col-sm-1">
+        <h4>02:00</h4>
+      </div>
+      <section class="col-sm-11 input-1" id="two">
+
+      </section>
+    </div>
+
+    <div class="row border">
+      <div class="col-sm-1">
+        <h4>03:00</h4>
+      </div>
+      <section class="col-sm-11 input-1" id="three">
+
+      </section>
+    </div>
+
+    <div class="row border">
+      <div class="col-sm-1">
+        <h4>04:00</h4>
+      </div>
+      <section class="col-sm-11 input-1" id="four">
+
+      </section>
+    </div>
+
+    <div class="row border">
+      <div class="col-sm-1">
+        <h4>05:00</h4>
+      </div>
+      <section class="col-sm-11 input-1" id="five">
+
+      </section>
+    </div>
+
+    <div class="row border">
+      <div class="col-sm-1">
+        <h4>06:00</h4>
+      </div>
+      <section class="col-sm-11 input-1" id="six">
+
+      </section>
+    </div>
+
+    <div class="row border">
+      <div class="col-sm-1">
+        <h4>07:00</h4>
+      </div>
+      <section class="col-sm-11 input-1" id="seven">
+
+      </section>
+    </div>
+
+    <div class="row border">
+      <div class="col-sm-1">
+        <h4>08:00</h4>
+      </div>
+      <section class="col-sm-11 input-1" id="eight">
+
+      </section>
+    </div>
+
+    <div class="row border">
+      <div class="col-sm-1">
+        <h4>09:00</h4>
+      </div>
+      <section class="col-sm-11 input-1" id="nine">
+
+      </section>
+    </div>
+
+    <div class="row border">
+      <div class="col-sm-1">
+        <h4>10:00</h4>
+      </div>
+      <section class="col-sm-11 input-1" id="ten">
+
+      </section>
+    </div>
+
+    <div class="row border">
+      <div class="col-sm-1">
+        <h4>11:00</h4>
+      </div>
+      <section class="col-sm-11 input-1" id="eleven">
+
+      </section>
+
+      <div class="row border">
+        <div class="col-sm-1">
+          <h4>12:00</h4>
+        </div>
+        <section class="col-sm-11 input-1" id="twelve">
+
+        </section>
+      </div>
+
+
+    </div>
+
+
+
+  </main>
+
 
 
 
@@ -44,183 +155,236 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script>
 
-    $(document).ready(function () {
-      // Your code
+
+    // Your code
+
+    
+    var hourBlocks = [];
 
 
-      var hourBlock = ["asdf", "dsafds"];
-
-      var hourBlocks = {
-        zero: {
-          zero: "",
-          thirty: "",
-        },
-        one: {
-          zero: "",
-          thirty: "",
-        },
-        two: {
-          zero: "",
-          thirty: "",
-        },
-        three: {
-          zero: "",
-          thirty: "",
-        },
-        four: {
-          zero: "",
-          thirty: "",
-        },
-        five: {
-          zero: "",
-          thirty: "",
-        },
-        six: {
-          zero: "",
-          thirty: "",
-        },
-        seven: {
-          zero: "",
-          thirty: "",
-        },
-        eight: {
-          zero: "",
-          thirty: "",
-        },
-        nine: {
-          zero: "",
-          thirty: "",
-        },
-        ten: {
-          zero: "",
-          thirty: "",
-        },
-        eleven: {
-          zero: "",
-          thirty: "",
-        },
-        twelve: {
-          zero: "",
-          thirty: "",
-        },
-        thirteen: {
-          zero: "",
-          thirty: "",
-        },
-        fourteen: {
-          zero: "",
-          thirty: "",
-        },
-        fifteen: {
-          zero: "",
-          thirty: "",
-        },
-        sixteen: {
-          zero: "",
-          thirty: "",
-        },
-        seventeen: {
-          zero: "",
-          thirty: "",
-        },
-        eighteen: {
-          zero: "",
-          thirty: "",
-        },
-        nineteen: {
-          zero: "",
-          thirty: "",
-        },
-        twenty: {
-          zero: "",
-          thirty: "",
-        },
-        twentyone: {
-          zero: "",
-          thirty: "",
-        },
-        twentytwo: {
-          zero: "",
-          thirty: "",
-        },
-        twentythree: {
-          zero: "",
-          thirty: "",
-        },
-        twentyfour: {
-          zero: "",
-          thirty: "",
-        },
-      }
-
-
-      $("#savebtn").on("click", function (event) {
-        event.preventDefault();
-        var span0000 = prompt("What will you schedule?");
-
-        $("#span0000").text(span0000);
+    if (hourBlocks){
+      var hourBlocks = JSON.parse(localStorage.getItem('hourBlocks'));
+      
+      var zero = hourBlocks.zero;
+      $("#zero").text(zero);
 
 
 
-      });
+    } else {
+    var hourBlocks = {
+     zero: "",
+     one: "",
+     two: "",
+     three: "",
+      four: "",
+      five: "",
+      six: "",
+      seven: "",
+      eight: "",
+      nine: "",
+
+     }
+    };
+//
+     
+    
 
 
+    $("#zero").on("click", function (event) {
+      event.preventDefault();
+      
+      var ask0 = prompt("What will you schedule?");
 
-
-
-      //for loop to add the divs for each half hour block of time
-      //will also add a unique id to be able to identify the location later
-      var hour = 00;
-      var minute = "00";
-      for (i = 0; i < 49; i++) {
-
-        var halfTimeBlock = hour + ":" + minute;
-
-        if (i % 2 == 0) {
-          
-          minute = "30";
-          $(".container").append("<p>" + halfTimeBlock + "</p>" + "<span id='span0000'></span>" + "<hr>" + "<br>");
-          
-        }
-        else {
-          hour++;
-          minute = "00";
-          $(".container").append("<p>" + halfTimeBlock + "</p>" + "<span id='span0000'></span>" + "<hr>" + "<br>");
-        }
-
-
-
-        console.log(i);
-      }
-
-
-
-
-      console.log(window);
+      $("#zero").text(ask0);
+      hourBlocks.zero = ask0;
+      localStorage.setItem("hourBlocks", JSON.stringify(hourBlocks));
+      
+      console.log(localStorage);
       console.log(hourBlocks);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      //function to update and display the current day, month, year and time and display in the HTML
-
-
-
-
     });
+
+
+    $("#one").on("click", function (event) {
+      event.preventDefault();
+      var ask1 = prompt("What will you schedule?");
+
+      $("#one").text(ask1);
+      // hourBlocks.push(1, 0, "");
+      hourBlocks.splice(1, 0, ask1);
+
+
+      console.log(hourBlocks);
+    });
+
+    $("#two").on("click", function (event) {
+      event.preventDefault();
+      var ask2 = prompt("What will you schedule?");
+
+      $("#two").text(ask2);
+      //hourBlocks.splice(2, 0, "");
+      hourBlocks.splice(2, 0, ask2);
+      console.log(hourBlocks);
+    });
+
+    $("#three").on("click", function (event) {
+      event.preventDefault();
+      var ask3 = prompt("What will you schedule?");
+
+      $("#three").text(ask3);
+      //hourBlocks.splice(3, 0, "");
+      hourBlocks.splice(3, 0, ask3);
+      console.log(hourBlocks);
+    });
+
+    $("#four").on("click", function (event) {
+      event.preventDefault();
+      var ask4 = prompt("What will you schedule?");
+
+      $("#four").text(ask4);
+      //hourBlocks.splice(4, 0, "");
+      hourBlocks.splice(4, 0, ask4);
+      console.log(hourBlocks);
+    });
+
+    $("#five").on("click", function (event) {
+      event.preventDefault();
+      var ask5 = prompt("What will you schedule?");
+
+      $("#five").text(ask5);
+      // hourBlocks.splice(5, 0, "");
+      hourBlocks.splice(5, 0, ask5);
+      console.log(hourBlocks);
+    });
+
+    $("#six").on("click", function (event) {
+      event.preventDefault();
+      var ask6 = prompt("What will you schedule?");
+
+      $("#six").text(ask6);
+      // hourBlocks.splice(1, 0, "");
+      hourBlocks.splice(1, 0, ask6);
+      console.log(hourBlocks);
+    });
+
+    $("#seven").on("click", function (event) {
+      event.preventDefault();
+      var ask7 = prompt("What will you schedule?");
+
+      $("#seven").text(ask7);
+      // hourBlocks.splice(7, 0, "");
+      hourBlocks.splice(7, 0, ask7);
+      console.log(hourBlocks);
+    });
+
+    $("#eight").on("click", function (event) {
+      event.preventDefault();
+      var ask8 = prompt("What will you schedule?");
+
+      $("#eight").text(ask8);
+      // hourBlocks.splice(8, 0, "");
+      hourBlocks.splice(8, 0, ask8);
+      console.log(hourBlocks);
+    });
+
+    $("#nine").on("click", function (event) {
+      event.preventDefault();
+      var ask9 = prompt("What will you schedule?");
+
+      $("#nine").text(ask9);
+      //hourBlocks.splice(9, 0, "");
+      hourBlocks.splice(9, 0, ask9);
+      console.log(hourBlocks);
+    });
+
+    $("#ten").on("click", function (event) {
+      event.preventDefault();
+      var ask10 = prompt("What will you schedule?");
+
+      $("#ten").text(ask10);
+      //hourBlocks.splice(10, 0, "");
+      hourBlocks.splice(10, 0, ask10);
+      console.log(hourBlocks);
+    });
+
+    $("#eleven").on("click", function (event) {
+      event.preventDefault();
+      var ask11 = prompt("What will you schedule?");
+
+      $("#eleven").text(ask11);
+      // hourBlocks.splice(11, 0, "");
+      hourBlocks.splice(11, 0, ask11);
+      console.log(hourBlocks);
+    });
+
+    $("#twelve").on("click", function (event) {
+      event.preventDefault();
+      var ask12 = prompt("What will you schedule?");
+
+      $("#twelve").text(ask12);
+      //hourBlocks.splice(12, 0, "");
+      hourBlocks.splice(12, 0, ask12);
+      console.log(hourBlocks);
+    });
+
+
+
+
+
+
+    //for loop to add the divs for each half hour block of time
+    //will also add a unique id to be able to identify the location later
+    //var hour = 00;
+    // var minute = "00";
+    // for (i = 0; i < 49; i++) {
+
+    //   var halfTimeBlock = hour + ":" + minute;
+
+    //  if (i % 2 == 0) {
+
+    //   minute = "30";
+    //  $(".container").append("<p>" + halfTimeBlock + "</p>" + "<span id='x'></span>" + "<hr>" + "<br>");
+
+    //  }
+    // else {
+    //   hour++;
+    //   minute = "00";
+    //  $(".container").append("<p>" + halfTimeBlock + "</p>" + "<span id='x'></span>" + "<hr>" + "<br>");
+    // }
+
+
+    //x++
+    // console.log(i);
+
+
+
+
+
+    console.log(window);
+    console.log(hourBlocks);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //function to update and display the current day, month, year and time and display in the HTML
+
+
+
+
+
 
     function updateTime() {
       var currentdate = new Date();

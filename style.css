@@ -72,4 +72,15 @@ textarea{
 
 #scroll-container{
   overflow-y: auto;
+  
 }
+
+.input{
+  width: 100%;
+}
+
+.border{
+  border: solid;
+  width: 100%;
+}
+
