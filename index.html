@@ -18,10 +18,17 @@
     <h1 class="display-3">Work Day Scheduler</h1>
     <p class="lead">A simple calendar app for scheduling your work day</p>
     <p id="currentDay" class="lead"></p>
-    <button class="btn" id="savebtn">Save</button>
+    <button class="save-btn" id="save"></button>
+    <button class="save-btn" id="clear"></button>
   </header>
 
   <main class="container" id="scroll-container">
+    <div class="row">
+      <div class="col">
+        <button class="save-btn" id="save"></button>
+    <button class="save-btn" id="clear"></button>
+      </div>
+    </div>
 
     <div class="row border">
       <div class="col-sm-1">
@@ -153,253 +160,296 @@
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="script.js"></script>
   <script>
 
 
-    // Your code
-
-    
-    var hourBlocks = [];
-
-
-    if (hourBlocks){
-      var hourBlocks = JSON.parse(localStorage.getItem('hourBlocks'));
-      
-      var zero = hourBlocks.zero;
-      $("#zero").text(zero);
-
-
-
-    } else {
-    var hourBlocks = {
-     zero: "",
-     one: "",
-     two: "",
-     three: "",
-      four: "",
-      five: "",
-      six: "",
-      seven: "",
-      eight: "",
-      nine: "",
-
-     }
-    };
-//
-     
-    
-
-
-    $("#zero").on("click", function (event) {
-      event.preventDefault();
-      
-      var ask0 = prompt("What will you schedule?");
-
-      $("#zero").text(ask0);
-      hourBlocks.zero = ask0;
-      localStorage.setItem("hourBlocks", JSON.stringify(hourBlocks));
-      
-      console.log(localStorage);
-      console.log(hourBlocks);
-
-    });
-
-
-    $("#one").on("click", function (event) {
-      event.preventDefault();
-      var ask1 = prompt("What will you schedule?");
-
-      $("#one").text(ask1);
-      // hourBlocks.push(1, 0, "");
-      hourBlocks.splice(1, 0, ask1);
-
-
-      console.log(hourBlocks);
-    });
-
-    $("#two").on("click", function (event) {
-      event.preventDefault();
-      var ask2 = prompt("What will you schedule?");
-
-      $("#two").text(ask2);
-      //hourBlocks.splice(2, 0, "");
-      hourBlocks.splice(2, 0, ask2);
-      console.log(hourBlocks);
-    });
-
-    $("#three").on("click", function (event) {
-      event.preventDefault();
-      var ask3 = prompt("What will you schedule?");
-
-      $("#three").text(ask3);
-      //hourBlocks.splice(3, 0, "");
-      hourBlocks.splice(3, 0, ask3);
-      console.log(hourBlocks);
-    });
-
-    $("#four").on("click", function (event) {
-      event.preventDefault();
-      var ask4 = prompt("What will you schedule?");
+//     // Your code
 
-      $("#four").text(ask4);
-      //hourBlocks.splice(4, 0, "");
-      hourBlocks.splice(4, 0, ask4);
-      console.log(hourBlocks);
-    });
 
-    $("#five").on("click", function (event) {
-      event.preventDefault();
-      var ask5 = prompt("What will you schedule?");
-
-      $("#five").text(ask5);
-      // hourBlocks.splice(5, 0, "");
-      hourBlocks.splice(5, 0, ask5);
-      console.log(hourBlocks);
-    });
+//     //var hourBlocks = [];
+//     var hourBlocks = JSON.parse(localStorage.getItem('hourBlocks'));
 
-    $("#six").on("click", function (event) {
-      event.preventDefault();
-      var ask6 = prompt("What will you schedule?");
+//     if (hourBlocks){
+//       //Retreives obj hourBlocks from local storage if it is created
+//       //var hourBlocks = JSON.parse(localStorage.getItem('hourBlocks'));
+//       console.log(hourBlocks);
+//       //sets local storage for each time slot and position in the object hourBlocks
+//       // for (var i=0; i<
 
-      $("#six").text(ask6);
-      // hourBlocks.splice(1, 0, "");
-      hourBlocks.splice(1, 0, ask6);
-      console.log(hourBlocks);
-    });
+//       var zero = hourBlocks.zero;
+//       $("#zero").text(zero);
 
-    $("#seven").on("click", function (event) {
-      event.preventDefault();
-      var ask7 = prompt("What will you schedule?");
+//       // var one = hourBlocks.one;
+//       // $("#one").text(one);
 
-      $("#seven").text(ask7);
-      // hourBlocks.splice(7, 0, "");
-      hourBlocks.splice(7, 0, ask7);
-      console.log(hourBlocks);
-    });
+//       // var two = hourBlocks.two;
+//       // $("#two").text(two);
 
-    $("#eight").on("click", function (event) {
-      event.preventDefault();
-      var ask8 = prompt("What will you schedule?");
+//       // var three = hourBlocks.three;
+//       // $("#three").text(three);
 
-      $("#eight").text(ask8);
-      // hourBlocks.splice(8, 0, "");
-      hourBlocks.splice(8, 0, ask8);
-      console.log(hourBlocks);
-    });
+//       // var four = hourBlocks.four;
+//       // $("#four").text(four);
 
-    $("#nine").on("click", function (event) {
-      event.preventDefault();
-      var ask9 = prompt("What will you schedule?");
+//       // var zero = hourBlocks.zero;
+//       // $("#zero").text(zero);
 
-      $("#nine").text(ask9);
-      //hourBlocks.splice(9, 0, "");
-      hourBlocks.splice(9, 0, ask9);
-      console.log(hourBlocks);
-    });
+//       // var zero = hourBlocks.zero;
+//       // $("#zero").text(zero);
 
-    $("#ten").on("click", function (event) {
-      event.preventDefault();
-      var ask10 = prompt("What will you schedule?");
+//       // var zero = hourBlocks.zero;
+//       // $("#zero").text(zero);
 
-      $("#ten").text(ask10);
-      //hourBlocks.splice(10, 0, "");
-      hourBlocks.splice(10, 0, ask10);
-      console.log(hourBlocks);
-    });
+//       // var zero = hourBlocks.zero;
+//       // $("#zero").text(zero);
 
-    $("#eleven").on("click", function (event) {
-      event.preventDefault();
-      var ask11 = prompt("What will you schedule?");
+//       // var zero = hourBlocks.zero;
+//       // $("#zero").text(zero);
 
-      $("#eleven").text(ask11);
-      // hourBlocks.splice(11, 0, "");
-      hourBlocks.splice(11, 0, ask11);
-      console.log(hourBlocks);
-    });
+//       // var zero = hourBlocks.zero;
+//       // $("#zero").text(zero);
 
-    $("#twelve").on("click", function (event) {
-      event.preventDefault();
-      var ask12 = prompt("What will you schedule?");
 
-      $("#twelve").text(ask12);
-      //hourBlocks.splice(12, 0, "");
-      hourBlocks.splice(12, 0, ask12);
-      console.log(hourBlocks);
-    });
 
 
+//     } else {
+//       // if obj hourBlocks isn't in local storage then create local storage
+//     var hourBlocks = {
+//      zero: "",
+//      one: "",
+//      two: "",
+//      three: "",
+//       four: "",
+//       five: "",
+//       six: "",
+//       seven: "",
+//       eight: "",
+//       nine: "",
 
+//      }
+//     };
+// //
 
+// $(".input-1").on("click", function (event) {
+//       event.preventDefault();
+//       var ask0 = prompt("What will you schedule?");
+//       $(this).text(ask0);
+//       hourBlocks.zero = ask0;
+//       localStorage.setItem("hourBlocks", JSON.stringify(hourBlocks));
+//     });
 
+//     // on click will prompt the user for text to add to position 
+//     // $("#zero").on("click", function (event) {
+//     //   event.preventDefault();
 
-    //for loop to add the divs for each half hour block of time
-    //will also add a unique id to be able to identify the location later
-    //var hour = 00;
-    // var minute = "00";
-    // for (i = 0; i < 49; i++) {
+//     //   var ask0 = prompt("What will you schedule?");
 
-    //   var halfTimeBlock = hour + ":" + minute;
+//     //   $("#zero").text(ask0);
+//     //   hourBlocks.zero = ask0;
+//     //   localStorage.setItem("hourBlocks", JSON.stringify(hourBlocks));
 
-    //  if (i % 2 == 0) {
+//     //   console.log(localStorage);
+//     //   console.log(hourBlocks);
 
-    //   minute = "30";
-    //  $(".container").append("<p>" + halfTimeBlock + "</p>" + "<span id='x'></span>" + "<hr>" + "<br>");
+//     // });
 
-    //  }
-    // else {
-    //   hour++;
-    //   minute = "00";
-    //  $(".container").append("<p>" + halfTimeBlock + "</p>" + "<span id='x'></span>" + "<hr>" + "<br>");
-    // }
 
+//     // $("#one").on("click", function (event) {
+//     //   event.preventDefault();
+//     //   var ask1 = prompt("What will you schedule?");
 
-    //x++
-    // console.log(i);
+//     //   $("#one").text(ask1);
+//     //   // hourBlocks.push(1, 0, "");
+//     //   hourBlocks.splice(1, 0, ask1);
 
 
+//     //   console.log(hourBlocks);
+//     // });
+
+//     // $("#two").on("click", function (event) {
+//     //   event.preventDefault();
+//     //   var ask2 = prompt("What will you schedule?");
+
+//     //   $("#two").text(ask2);
+//     //   //hourBlocks.splice(2, 0, "");
+//     //   hourBlocks.splice(2, 0, ask2);
+//     //   console.log(hourBlocks);
+//     // });
+
+//     // $("#three").on("click", function (event) {
+//     //   event.preventDefault();
+//     //   var ask3 = prompt("What will you schedule?");
+
+//     //   $("#three").text(ask3);
+//     //   //hourBlocks.splice(3, 0, "");
+//     //   hourBlocks.splice(3, 0, ask3);
+//     //   console.log(hourBlocks);
+//     // });
+
+//     // $("#four").on("click", function (event) {
+//     //   event.preventDefault();
+//     //   var ask4 = prompt("What will you schedule?");
+
+//     //   $("#four").text(ask4);
+//     //   //hourBlocks.splice(4, 0, "");
+//     //   hourBlocks.splice(4, 0, ask4);
+//     //   console.log(hourBlocks);
+//     // });
+
+//     // $("#five").on("click", function (event) {
+//     //   event.preventDefault();
+//     //   var ask5 = prompt("What will you schedule?");
+
+//     //   $("#five").text(ask5);
+//     //   // hourBlocks.splice(5, 0, "");
+//     //   hourBlocks.splice(5, 0, ask5);
+//     //   console.log(hourBlocks);
+//     // });
+
+//     // $("#six").on("click", function (event) {
+//     //   event.preventDefault();
+//     //   var ask6 = prompt("What will you schedule?");
 
+//     //   $("#six").text(ask6);
+//     //   // hourBlocks.splice(1, 0, "");
+//     //   hourBlocks.splice(1, 0, ask6);
+//     //   console.log(hourBlocks);
+//     // });
 
+//     // $("#seven").on("click", function (event) {
+//     //   event.preventDefault();
+//     //   var ask7 = prompt("What will you schedule?");
 
-    console.log(window);
-    console.log(hourBlocks);
+//     //   $("#seven").text(ask7);
+//     //   // hourBlocks.splice(7, 0, "");
+//     //   hourBlocks.splice(7, 0, ask7);
+//     //   console.log(hourBlocks);
+//     // });
 
+//     // $("#eight").on("click", function (event) {
+//     //   event.preventDefault();
+//     //   var ask8 = prompt("What will you schedule?");
 
+//     //   $("#eight").text(ask8);
+//     //   // hourBlocks.splice(8, 0, "");
+//     //   hourBlocks.splice(8, 0, ask8);
+//     //   console.log(hourBlocks);
+//     // });
 
+//     // $("#nine").on("click", function (event) {
+//     //   event.preventDefault();
+//     //   var ask9 = prompt("What will you schedule?");
 
+//     //   $("#nine").text(ask9);
+//     //   //hourBlocks.splice(9, 0, "");
+//     //   hourBlocks.splice(9, 0, ask9);
+//     //   console.log(hourBlocks);
+//     // });
 
+//     // $("#ten").on("click", function (event) {
+//     //   event.preventDefault();
+//     //   var ask10 = prompt("What will you schedule?");
 
+//     //   $("#ten").text(ask10);
+//     //   //hourBlocks.splice(10, 0, "");
+//     //   hourBlocks.splice(10, 0, ask10);
+//     //   console.log(hourBlocks);
+//     // });
 
+//     // $("#eleven").on("click", function (event) {
+//     //   event.preventDefault();
+//     //   var ask11 = prompt("What will you schedule?");
 
+//     //   $("#eleven").text(ask11);
+//     //   // hourBlocks.splice(11, 0, "");
+//     //   hourBlocks.splice(11, 0, ask11);
+//     //   console.log(hourBlocks);
+//     // });
 
+//     // $("#twelve").on("click", function (event) {
+//     //   event.preventDefault();
+//     //   var ask12 = prompt("What will you schedule?");
 
+//     //   $("#twelve").text(ask12);
+//     //   //hourBlocks.splice(12, 0, "");
+//     //   hourBlocks.splice(12, 0, ask12);
+//     //   console.log(hourBlocks);
+//     // });
 
 
 
 
 
 
+//     //for loop to add the divs for each half hour block of time
+//     //will also add a unique id to be able to identify the location later
+//     //var hour = 00;
+//     // var minute = "00";
+//     // for (i = 0; i < 49; i++) {
 
-    //function to update and display the current day, month, year and time and display in the HTML
+//     //   var halfTimeBlock = hour + ":" + minute;
 
+//     //  if (i % 2 == 0) {
 
+//     //   minute = "30";
+//     //  $(".container").append("<p>" + halfTimeBlock + "</p>" + "<span id='x'></span>" + "<hr>" + "<br>");
 
+//     //  }
+//     // else {
+//     //   hour++;
+//     //   minute = "00";
+//     //  $(".container").append("<p>" + halfTimeBlock + "</p>" + "<span id='x'></span>" + "<hr>" + "<br>");
+//     // }
 
 
+//     //x++
+//     // console.log(i);
 
-    function updateTime() {
-      var currentdate = new Date();
-      var datetime = "Last Sync: " + currentdate.getDate() + "/"
-        + (currentdate.getMonth() + 1) + "/"
-        + currentdate.getFullYear() + " @ "
-        + currentdate.getHours() + ":"
-        + currentdate.getMinutes() + ":"
-        + currentdate.getSeconds();
-      var timeNow = $("#currentDay").text(currentdate);
-      setTimeout("updateTime()", 1000);
-    }
-    updateTime();
 
-  </script>
+
+
+
+//     //console.log(window);
+//     //console.log(hourBlocks);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//     //function to update and display the current day, month, year and time and display in the HTML
+
+
+
+
+
+
+//     function updateTime() {
+//       var currentdate = new Date();
+//       var datetime = "Last Sync: " + currentdate.getDate() + "/"
+//         + (currentdate.getMonth() + 1) + "/"
+//         + currentdate.getFullYear() + " @ "
+//         + currentdate.getHours() + ":"
+//         + currentdate.getMinutes() + ":"
+//         + currentdate.getSeconds();
+//       var timeNow = $("#currentDay").text(currentdate);
+//       setTimeout("updateTime()", 1000);
+//     }
+//     updateTime();
+
+//   </script>
 
 </body>
 
