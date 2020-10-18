@@ -70,17 +70,25 @@ textarea{
   transition: all .3s ease-in-out;
 }
 
-#scroll-container{
+/* #scroll-container{
   overflow-y: auto;
   
-}
+} */
 
-.input{
-  width: 100%;
-}
+
 
 .border{
   border: solid;
   width: 100%;
+  margin-bottom: 10px;
 }
 
+.input-1:hover {
+  cursor: pointer;
+  border-color: rgba(29, 236, 11, 0.253);
+  border-width: 10px;
+}
+
+.input-1{
+  width: 100%;
+}
