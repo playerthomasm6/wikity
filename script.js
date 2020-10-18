@@ -29,6 +29,11 @@ $('#clear').on('click', function () {
     location.reload();
 });
 
+$('#instructions').on('click', function () {
+    showModalDialog("instructions.html");
+    //alert("Click on each time slot to enter text.  Once text is entered, click save to save text.  Click clear to clear calendar contents.");
+});
+
 // This function prevents this code from running until the page fully loads
 $(document).ready(function () {
     // Once loaded this creates the var hourBlocks and sets the value from local storage
@@ -55,3 +60,34 @@ function updateTime() {
     setTimeout("updateTime()", 1000);
 }
 updateTime();
+
+//This is for the modal box
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("instructions");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+

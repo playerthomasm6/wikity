@@ -19,9 +19,35 @@
     <h1 class="display-3">Work Day Scheduler</h1>
     <p class="lead">A simple calendar app for scheduling your work day</p>
     <p id="currentDay" class="lead"></p>
-    <button class="save-btn" id="save"></button>
-    <button class="save-btn" id="clear"></button>
+    
   </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <button id="save">Save</button>
+      </div>
+      <div class="col-4">
+        <button id="clear">Clear Calendar</button>
+      </div>
+      <div class="col-4">
+        <button id="instructions">Instructions</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h1>Instructions</h1>
+      <li>Click on a time slot to enter text</li>
+      <li>Once the desired text is entered, click "Save" to save calendar</li>
+      <li>Click "Clear Calendar" to clear all calendar text</li>
+    </div>
+  
+  </div>
 
   <main class="container" id="scroll-container">
     <!--Container holds all the time slots-->
