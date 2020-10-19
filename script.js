@@ -1,5 +1,6 @@
 
 // Creates the array todos
+console.log(localStorage);
 var todos = [];
 // On click any item with .input will add call a prompt
 $(".input-1").on("click", function (event) {
@@ -29,10 +30,9 @@ $('#clear').on('click', function () {
     location.reload();
 });
 
-$('#instructions').on('click', function () {
-    showModalDialog("instructions.html");
-    //alert("Click on each time slot to enter text.  Once text is entered, click save to save text.  Click clear to clear calendar contents.");
-});
+// $('#instructions').on('click', function () {
+//     showModalDialog("instructions.html");
+// });
 
 // This function prevents this code from running until the page fully loads
 $(document).ready(function () {
@@ -43,6 +43,15 @@ $(document).ready(function () {
         // one approach: procedural programming approach
         for (i = 0; i < hourBlocks.length; i++) {
             $('#' + hourBlocks[i].id).append(hourBlocks[i].value);
+            var elemId1 = hourBlocks[i].id;
+            var value1 = hourBlocks[i].value
+            
+            todos.push({
+                id: elemId1,
+                value: value1
+            });
+
+
         }
        
     }
@@ -64,30 +73,33 @@ updateTime();
 //This is for the modal box
 
 
-// Get the modal
-var modal = document.getElementById("myModal");
+ // Get the modal
+ var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
-var btn = document.getElementById("instructions");
+ // Get the button that opens the modal
+ var btn = document.getElementById("instructions");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+ // Get the <span> element that closes the modal
+ var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+ // When the user clicks the button, open the modal 
+ btn.onclick = function() {
+   modal.style.display = "block";
+ }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+ // When the user clicks on <span> (x), close the modal
+ span.onclick = function() {
+   modal.style.display = "none";
+ }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+ // When the user clicks anywhere outside of the modal, close it
+ window.onclick = function(event) {
+   if (event.target == modal) {
+     modal.style.display = "none";
   }
-}
+ }
+
+
+
 
 

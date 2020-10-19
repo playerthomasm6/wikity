@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="Assets/style.css">
   <title>Work Day Scheduler</title>
 </head>
 
@@ -19,7 +19,7 @@
     <h1 class="display-3">Work Day Scheduler</h1>
     <p class="lead">A simple calendar app for scheduling your work day</p>
     <p id="currentDay" class="lead"></p>
-    
+
   </header>
 
   <div class="container">
@@ -46,14 +46,15 @@
       <li>Once the desired text is entered, click "Save" to save calendar</li>
       <li>Click "Clear Calendar" to clear all calendar text</li>
     </div>
-  
+
   </div>
 
+  <!--Container holds all the time slots-->
   <main class="container" id="scroll-container">
-    <!--Container holds all the time slots-->
 
+    <!--position 00:00-->
     <div class="row border">
-      <!--position 00:00-->
+
       <div class="col-sm-1">
         <h4>00:00</h4>
       </div>
@@ -62,8 +63,9 @@
       </section>
     </div>
 
+    <!--position 01:00-->
     <div class="row border">
-      <!--position 01:00-->
+
       <div class="col-sm-1">
         <h4>01:00</h4>
       </div>
@@ -72,18 +74,20 @@
       </section>
     </div>
 
+    <!--position 02:00-->
     <div class="row border">
-      <!--position 02:00-->
+
       <div class="col-sm-1">
         <h4>02:00</h4>
       </div>
       <section class="col-sm-11 input-1" id="two">
-
+        
       </section>
     </div>
 
+    <!--position 03:00-->
     <div class="row border">
-      <!--position 03:00-->
+
       <div class="col-sm-1">
         <h4>03:00</h4>
       </div>
@@ -92,8 +96,9 @@
       </section>
     </div>
 
+    <!--position 04:00-->
     <div class="row border">
-      <!--position 04:00-->
+
       <div class="col-sm-1">
         <h4>04:00</h4>
       </div>
@@ -298,7 +303,7 @@
       <div class="col-sm-1">
         <h4>24:00</h4>
       </div>
-      <section class="col-sm-11 input-1" id="twentyfour">
+      <section class="col-sm-11 input-1" data-number="24" id="twentyfour">
 
       </section>
     </div>
